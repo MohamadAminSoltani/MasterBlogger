@@ -14,7 +14,7 @@ namespace MB.Infrastructure.EFCore.Repositories
         {
             _context = context; 
         }
-        public void Create(ArticleCategory category)
+        public void Add(ArticleCategory category)
         {
             _context.ArticleCategories.Add(category);
             _context.SaveChanges(); 
@@ -22,7 +22,7 @@ namespace MB.Infrastructure.EFCore.Repositories
 
         public List<ArticleCategory> GetAll()
         {
-            return _context.ArticleCategories.ToList();
+            return _context.ArticleCategories.OrderByDescending(x=>x.Id).ToList();
         }
     }
 }
