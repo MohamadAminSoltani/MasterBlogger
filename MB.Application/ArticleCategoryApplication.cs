@@ -19,6 +19,8 @@ namespace MB.Application
             _articleCategoryRepository.Add(articleCategory);
         }
 
+        
+
         public List<ArticleCategoryViewModel> List()
         {
             var articleCategories = _articleCategoryRepository.GetAll();
@@ -35,6 +37,23 @@ namespace MB.Application
             }
 
             return result;
+        }
+       
+        public void Rename(RenameArticleCategory command)
+        {
+            var articleCategory = _articleCategoryRepository.Get(command.Id);
+            articleCategory.Rename(command.Title);
+            _articleCategoryRepository.Save();
+        }
+
+        public RenameArticleCategory Get(long id)
+        {
+            var articleCategory = _articleCategoryRepository.Get(id);
+            return new RenameArticleCategory
+            {
+                Id = articleCategory.Id,
+                Title = articleCategory.Title,
+            };
         }
     }
 }
