@@ -55,5 +55,19 @@ namespace MB.Application
                 Title = articleCategory.Title,
             };
         }
+
+        public void Remove(long id)
+        {
+            var articeCategory = _articleCategoryRepository.Get(id);
+            articeCategory.Remove();
+            _articleCategoryRepository.Save();
+        }
+
+        public void Activate(long id)
+        {
+            var articleCategory = _articleCategoryRepository.Get(id);
+            articleCategory.Activate();
+            _articleCategoryRepository.Save();
+        }
     }
 }
