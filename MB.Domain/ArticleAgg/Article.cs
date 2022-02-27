@@ -15,7 +15,7 @@ namespace MB.Domain.ArticleAgg
         public string Image { get; private set; }
         public string Content { get; private set; }
         public bool IsDeleted { get; private set; }
-        public DateTime CreationTime { get; private set; }
+        public DateTime CreationDate { get; private set; }
 
         public long ArticleCategoryId { get; private set; }
         public ArticleCategory ArticleCategory { get; private set; }
@@ -32,7 +32,7 @@ namespace MB.Domain.ArticleAgg
             Image = image;
             Content = content;
             IsDeleted = false;
-            CreationTime = DateTime.Now;
+            CreationDate = DateTime.Now;
             ArticleCategoryId = articleCategoryId;
         }
     }
