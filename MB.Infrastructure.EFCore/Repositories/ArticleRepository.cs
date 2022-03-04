@@ -19,6 +19,11 @@ namespace MB.Infrastructure.EFCore.Repositories
             _context.SaveChanges();
         }
 
+        public Article Get(long id)
+        {
+            return _context.Articles.FirstOrDefault(x => x.Id == id);
+        }
+
         public List<ArticleViewModel> GetList()
         {
             return _context.Articles.Include(x=>x.ArticleCategory).Select(x => new ArticleViewModel
@@ -29,6 +34,11 @@ namespace MB.Infrastructure.EFCore.Repositories
                 IsDeleted = x.IsDeleted,
                 CreationDate =x.CreationDate.ToString(CultureInfo.InvariantCulture)
             }).ToList();
+        }
+
+        public void Save()
+        {
+            _context.SaveChanges();
         }
     }
 }
