@@ -15,6 +15,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MB.Presentation.MVCCore", "
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MB.Infrastructure.Core", "MB.Infrastructure.Core\MB.Infrastructure.Core.csproj", "{CD4813C3-36F9-4CBD-A893-DBFFA3AAEBDD}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MB.Infrastructure.Query", "MB.Infrastructure.Query\MB.Infrastructure.Query.csproj", "{71C124B1-165C-44C7-AC4C-907685E9825F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -45,6 +47,10 @@ Global
 		{CD4813C3-36F9-4CBD-A893-DBFFA3AAEBDD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CD4813C3-36F9-4CBD-A893-DBFFA3AAEBDD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CD4813C3-36F9-4CBD-A893-DBFFA3AAEBDD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{71C124B1-165C-44C7-AC4C-907685E9825F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{71C124B1-165C-44C7-AC4C-907685E9825F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{71C124B1-165C-44C7-AC4C-907685E9825F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{71C124B1-165C-44C7-AC4C-907685E9825F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
