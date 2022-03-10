@@ -1,13 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
+﻿
 namespace MB.Application.Contracts.Comments
 {
     public interface ICommentApplication
     {
+        List<CommentViewModel> GetComments();
         void Add(AddComment command);
     }
 }
