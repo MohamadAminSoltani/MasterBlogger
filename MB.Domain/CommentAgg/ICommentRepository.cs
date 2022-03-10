@@ -1,9 +1,4 @@
 ﻿using MB.Application.Contracts.Comments;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace MB.Domain.CommentAgg
 {
@@ -11,5 +6,7 @@ namespace MB.Domain.CommentAgg
     {
         void CreateAndSave(Comment comment);
         List<CommentViewModel> GetList();
+        Comment Get(long id);
+        void Save();    
     }
 }
