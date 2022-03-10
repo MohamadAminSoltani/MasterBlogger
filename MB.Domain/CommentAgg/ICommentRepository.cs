@@ -8,6 +8,7 @@ namespace MB.Domain.CommentAgg
 {
     public interface ICommentRepository
     {
+        void CreateAndSave(Comment comment);
         //List<CommentViewModel> GetList();
     }
 }

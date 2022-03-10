@@ -1,13 +1,20 @@
 ﻿using MB.Application.Contracts.Comments;
+using MB.Domain.CommentAgg;
 
 namespace MB.Application
 {
     public class CommentApplication: ICommentApplication
     {
-        private readonly ICommentApplication _commentApplication;
-        public CommentApplication(ICommentApplication commentApplication)
+        private readonly ICommentRepository _commentRepository;
+        public CommentApplication(ICommentRepository commentRepository)
         {
-            _commentApplication = commentApplication;
+            _commentRepository = commentRepository;
+        }
+
+        public void Add(AddComment command)
+        {
+            var comment = new Comment(command.Name,command.Email,command.Message,command.ArticleId);
+            _commentRepository.CreateAndSave(comment);  
         }
     }
 }

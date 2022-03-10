@@ -24,6 +24,7 @@ namespace MB.Domain.CommentAgg
             Message = message;
             ArticleId = articleId;
             Status = Statuses.New;
+            CreationDate = DateTime.Now;
         }
 
         public void Confirm()

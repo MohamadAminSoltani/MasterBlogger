@@ -8,5 +8,6 @@ namespace MB.Application.Contracts.Comments
 {
     public interface ICommentApplication
     {
+        void Add(AddComment command);
     }
 }
