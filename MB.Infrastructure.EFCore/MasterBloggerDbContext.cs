@@ -3,11 +3,6 @@ using MB.Domain.ArticleCategoryAgg;
 using MB.Domain.CommentAgg;
 using MB.Infrastructure.EFCore.Mappings;
 using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace MB.Infrastructure.EFCore
 {
@@ -26,9 +21,6 @@ namespace MB.Infrastructure.EFCore
         {
             var assembly = typeof(ArticleMapping).Assembly;
             modelBuilder.ApplyConfigurationsFromAssembly(assembly);
-            //modelBuilder.ApplyConfiguration(new ArticleMapping());
-            //modelBuilder.ApplyConfiguration(new CommentMapping());
-            //modelBuilder.ApplyConfiguration(new ArticleCategoryMapping());
             base.OnModelCreating(modelBuilder);
         }
     }
