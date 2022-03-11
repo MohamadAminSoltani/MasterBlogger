@@ -1,27 +1,17 @@
-﻿using MB.Application.Contracts.Article;
+﻿using _01_Framework.Infrastructure;
+using MB.Application.Contracts.Article;
 using MB.Domain.ArticleAgg;
 using Microsoft.EntityFrameworkCore;
 using System.Globalization;
 
 namespace MB.Infrastructure.EFCore.Repositories
 {
-    public class ArticleRepository : IArticleRepository
+    public class ArticleRepository :BaseRepository<long, Article> ,IArticleRepository
     {
         private readonly MasterBloggerContext _context;
-        public ArticleRepository(MasterBloggerContext context)
+        public ArticleRepository(MasterBloggerContext context):base(context)
         {
             _context = context;
-        }
-
-        public void CreateAndSave(Article article)
-        {
-            _context.Articles.Add(article);
-            _context.SaveChanges();
-        }
-
-        public Article Get(long id)
-        {
-            return _context.Articles.FirstOrDefault(x => x.Id == id);
         }
 
         public List<ArticleViewModel> GetList()
@@ -34,11 +24,6 @@ namespace MB.Infrastructure.EFCore.Repositories
                 IsDeleted = x.IsDeleted,
                 CreationDate =x.CreationDate.ToString(CultureInfo.InvariantCulture)
             }).ToList();
-        }
-
-        public void Save()
-        {
-            _context.SaveChanges();
         }
     }
 }

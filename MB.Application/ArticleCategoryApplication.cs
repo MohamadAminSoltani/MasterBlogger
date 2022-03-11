@@ -1,6 +1,7 @@
 ﻿using MB.Application.Contracts.ArticleCategory;
 using MB.Domain.ArticleCategoryAgg;
 using System.Globalization;
+using System.Linq;
 
 namespace MB.Application
 {
@@ -16,34 +17,28 @@ namespace MB.Application
         public void Create(CreateArticleCategory command)
         {
             var articleCategory = new ArticleCategory(command.Title);
-            _articleCategoryRepository.Add(articleCategory);
+            _articleCategoryRepository.Create(articleCategory);
         }
 
-        
+
 
         public List<ArticleCategoryViewModel> List()
         {
             var articleCategories = _articleCategoryRepository.GetAll();
-            var result = new List<ArticleCategoryViewModel>();
-            foreach (var articleCategory in articleCategories)
+            return articleCategories.Select(articleCategory => new ArticleCategoryViewModel()
             {
-                result.Add(new ArticleCategoryViewModel()
-                {
-                    Title = articleCategory.Title,
-                    Id = articleCategory.Id,
-                    IsDeleted = articleCategory.IsDeleted,
-                    CreationDate = articleCategory.CreationDate.ToString(CultureInfo.InvariantCulture)
-                });
-            }
-
-            return result;
+                Title = articleCategory.Title,
+                Id = articleCategory.Id,
+                IsDeleted = articleCategory.IsDeleted,
+                CreationDate = articleCategory.CreationDate.ToString(CultureInfo.InvariantCulture)
+            }).OrderByDescending(x => x.Id).ToList();
         }
-       
+
         public void Rename(RenameArticleCategory command)
         {
             var articleCategory = _articleCategoryRepository.Get(command.Id);
             articleCategory.Rename(command.Title);
-            _articleCategoryRepository.Save();
+            //_articleCategoryRepository.Save();
         }
 
         public RenameArticleCategory Get(long id)
@@ -60,14 +55,14 @@ namespace MB.Application
         {
             var articeCategory = _articleCategoryRepository.Get(id);
             articeCategory.Remove();
-            _articleCategoryRepository.Save();
+            //_articleCategoryRepository.Save();
         }
 
         public void Activate(long id)
         {
             var articleCategory = _articleCategoryRepository.Get(id);
             articleCategory.Activate();
-            _articleCategoryRepository.Save();
+            //_articleCategoryRepository.Save();
         }
     }
 }
